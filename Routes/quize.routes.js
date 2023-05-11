@@ -24,11 +24,11 @@ res.send(data)
 })
 
 quizeroute.post("/post",async(req,res)=>{
-const data=req.body
+const {quiz,leaderboard}=req.body
 
 try {
     const quize=new Quizsmodel({
-        data
+        quiz,leaderboard
     })
     await quize.save()
     res.send("Quize Creaated Sucsessfully...")
